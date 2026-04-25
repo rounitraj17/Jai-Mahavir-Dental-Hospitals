@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jai Mahavir Dental Hospital – Patna</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #faf8f3;
+    --cream: #f2ede2;
+    --teal: #1a6b6b;
+    --teal-light: #2a8f8f;
+    --teal-pale: #e8f4f4;
+    --gold: #c8a55a;
+    --charcoal: #1c1c1c;
+    --muted: #6b6b6b;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ivory);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(250,248,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200,165,90,0.2);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: .75rem;
+  }
+  .nav-logo .logo-icon {
+    width: 40px; height: 40px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .nav-logo span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--teal);
+    line-height: 1.2;
+  }
+  .nav-logo small { display: block; font-size: .65rem; color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; }
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--charcoal); font-size: .88rem; font-weight: 500; letter-spacing: .02em; transition: color .2s; }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    background: var(--teal); color: var(--white);
+    padding: .55rem 1.4rem; border-radius: 2rem;
+    text-decoration: none; font-size: .85rem; font-weight: 600;
+    transition: background .2s, transform .1s;
+    letter-spacing: .02em;
+  }
+  .nav-cta:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6% 6% 6% 8%;
+    position: relative;
+  }
+  .hero-left::before {
+    content: '✦';
+    position: absolute; top: 18%; left: 6%;
+    font-size: 1rem; color: var(--gold); opacity: .6;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100% { opacity:.3; transform:scale(1);} 50%{opacity:.8;transform:scale(1.3);} }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--teal-pale); color: var(--teal);
+    border: 1px solid rgba(26,107,107,.2);
+    border-radius: 2rem; padding: .4rem 1rem;
+    font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    margin-bottom: 1.8rem; width: fit-content;
+    animation: fadeUp .6s ease both;
+  }
+  .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    line-height: 1.15;
+    color: var(--charcoal);
+    animation: fadeUp .6s .1s ease both;
+  }
+  .hero-title em { font-style: italic; color: var(--teal); }
+  .hero-title .gold { color: var(--gold); font-style: normal; }
+
+  .hero-sub {
+    font-size: 1rem; color: var(--muted); line-height: 1.7;
+    margin: 1.5rem 0 2.5rem;
+    max-width: 460px;
+    animation: fadeUp .6s .2s ease both;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp .6s .3s ease both;
+  }
+  .btn-primary {
+    background: var(--teal); color: #fff;
+    padding: .85rem 2rem; border-radius: 2rem;
+    text-decoration: none; font-weight: 600; font-size: .9rem;
+    box-shadow: 0 8px 24px rgba(26,107,107,.25);
+    transition: all .2s;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(26,107,107,.3); }
+  .btn-secondary {
+    background: transparent; color: var(--charcoal);
+    padding: .85rem 2rem; border-radius: 2rem;
+    border: 1.5px solid rgba(28,28,28,.2);
+    text-decoration: none; font-weight: 500; font-size: .9rem;
+    transition: all .2s;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3rem;
+    animation: fadeUp .6s .4s ease both;
+  }
+  .stat { text-align: left; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--teal); font-weight: 700; }
+  .stat-lbl { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+
+  .hero-right {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--teal) 0%, #0d4444 100%);
+    overflow: hidden;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 30% 70%, rgba(200,165,90,.15) 0%, transparent 60%),
+                      radial-gradient(circle at 80% 20%, rgba(255,255,255,.06) 0%, transparent 50%);
+  }
+  .hero-img-grid {
+    position: relative; z-index: 2;
+    display: grid; grid-template-rows: 1fr 1fr;
+    gap: 1rem; padding: 3rem 3rem 3rem 2rem;
+    height: 100%; width: 100%;
+  }
+  .clinic-card {
+    border-radius: 1.2rem;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    transform: perspective(800px) rotateY(-3deg);
+    transition: transform .3s;
+    position: relative;
+  }
+  .clinic-card:hover { transform: perspective(800px) rotateY(0deg) scale(1.02); }
+  .clinic-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .clinic-card-label {
+    position: absolute; bottom: .8rem; left: .8rem;
+    background: rgba(0,0,0,.55); backdrop-filter: blur(8px);
+    color: #fff; font-size: .72rem; font-weight: 500;
+    padding: .3rem .8rem; border-radius: 1rem; letter-spacing: .04em;
+  }
+  .rating-badge {
+    position: absolute; top: -1rem; right: 2rem;
+    background: var(--gold); color: var(--charcoal);
+    border-radius: 1rem; padding: .7rem 1.2rem;
+    font-weight: 700; font-size: .9rem;
+    box-shadow: 0 8px 20px rgba(200,165,90,.4);
+    z-index: 10;
+    text-align: center;
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+  .rating-badge small { display: block; font-size: .65rem; font-weight: 400; opacity: .8; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 5rem 8%; }
+  .section-tag {
+    display: inline-block;
+    background: var(--teal-pale); color: var(--teal);
+    font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    padding: .35rem .9rem; border-radius: 2rem; margin-bottom: 1rem;
+    border: 1px solid rgba(26,107,107,.15);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.25; color: var(--charcoal); margin-bottom: 1rem;
+  }
+  .section-title em { font-style: italic; color: var(--teal); }
+
+  /* ── SERVICES ── */
+  #services { background: var(--cream); }
+  .services-header { text-align: center; max-width: 600px; margin: 0 auto 3rem; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: 1.2rem;
+    padding: 2rem;
+    border: 1px solid rgba(0,0,0,.06);
+    transition: all .25s;
+    cursor: default;
+    position: relative; overflow: hidden;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--gold));
+    transform: scaleX(0); transition: transform .25s;
+    transform-origin: left;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,.1); }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-icon {
+    width: 52px; height: 52px;
+    background: var(--teal-pale);
+    border-radius: .8rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 1.2rem;
+  }
+  .service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; color: var(--charcoal); }
+  .service-card p { font-size: .83rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+  /* ── WHY US ── */
+  #why {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    padding: 5rem 8%;
+  }
+  .why-visual {
+    position: relative;
+  }
+  .why-visual-inner {
+    background: linear-gradient(135deg, var(--teal), #0d4444);
+    border-radius: 1.8rem;
+    padding: 3rem;
+    color: white;
+    position: relative; overflow: hidden;
+  }
+  .why-visual-inner::before {
+    content: '🦷';
+    position: absolute; right: -1rem; bottom: -1rem;
+    font-size: 8rem; opacity: .07;
+  }
+  .why-list { list-style: none; }
+  .why-list li {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    font-size: .9rem; line-height: 1.5;
+  }
+  .why-list li:last-child { border-bottom: none; }
+  .why-list .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: .1rem; }
+  .why-list strong { display: block; margin-bottom: .2rem; font-weight: 600; }
+  .why-list span { opacity: .75; font-size: .82rem; font-weight: 300; }
+
+  .why-right { }
+  .why-right .section-tag { display: inline-block; }
+  .why-right p { font-size: .95rem; color: var(--muted); line-height: 1.8; margin: 1rem 0 2rem; font-weight: 300; }
+  .feature-pills { display: flex; flex-wrap: wrap; gap: .7rem; }
+  .pill {
+    background: var(--teal-pale); color: var(--teal);
+    border: 1px solid rgba(26,107,107,.2);
+    border-radius: 2rem; padding: .4rem 1rem;
+    font-size: .8rem; font-weight: 500;
+  }
+
+  /* ── HOURS ── */
+  #hours { background: var(--cream); text-align: center; }
+  .hours-card {
+    background: var(--white);
+    border-radius: 1.8rem;
+    max-width: 700px; margin: 2.5rem auto 0;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.08);
+    border: 1px solid rgba(0,0,0,.06);
+  }
+  .hours-header {
+    background: linear-gradient(135deg, var(--teal), #0d4444);
+    padding: 2rem; color: white;
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .hours-header h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: .9rem 2rem; font-size: .88rem; }
+  tr:not(:last-child) td { border-bottom: 1px solid rgba(0,0,0,.06); }
+  tr.closed td { color: var(--muted); }
+  .day-col { font-weight: 600; color: var(--charcoal); }
+  .time-col { color: var(--teal); font-weight: 500; text-align: right; }
+  .closed .time-col { color: #c0392b; }
+  .open-badge {
+    display: inline-block; background: #e8f9f0; color: #1a7a4a;
+    font-size: .7rem; font-weight: 600; padding: .15rem .6rem; border-radius: 1rem;
+    margin-left: .5rem; vertical-align: middle;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+    padding: 5rem 8%;
+  }
+  .contact-info .section-title { margin-bottom: 1.5rem; }
+  .contact-detail {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(0,0,0,.08);
+  }
+  .contact-detail:last-of-type { border-bottom: none; }
+  .contact-detail .icon-box {
+    width: 44px; height: 44px; background: var(--teal-pale);
+    border-radius: .7rem; display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .contact-detail div { flex: 1; }
+  .contact-detail strong { display: block; font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .3rem; }
+  .contact-detail a, .contact-detail p { color: var(--charcoal); text-decoration: none; font-size: .92rem; font-weight: 500; line-height: 1.5; }
+  .contact-detail a:hover { color: var(--teal); }
+
+  .contact-form {
+    background: var(--white);
+    border-radius: 1.5rem; padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,.07);
+    border: 1px solid rgba(0,0,0,.06);
+  }
+  .contact-form h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: .78rem; font-weight: 600; color: var(--muted); margin-bottom: .5rem; text-transform: uppercase; letter-spacing: .05em; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: .8rem 1rem;
+    border: 1.5px solid rgba(0,0,0,.1);
+    border-radius: .7rem;
+    font-family: 'DM Sans', sans-serif; font-size: .9rem;
+    background: var(--ivory); color: var(--charcoal);
+    transition: border-color .2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--teal);
+  }
+  .form-group textarea { resize: vertical; min-height: 90px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-submit {
+    width: 100%; padding: .95rem;
+    background: var(--teal); color: white;
+    border: none; border-radius: 2rem;
+    font-family: 'DM Sans', sans-serif; font-size: .95rem; font-weight: 600;
+    cursor: pointer; transition: all .2s;
+    letter-spacing: .02em;
+  }
+  .form-submit:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,107,107,.25); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal); color: rgba(255,255,255,.7);
+    padding: 3rem 8%; text-align: center;
+    font-size: .84rem; line-height: 1.8;
+  }
+  footer strong { color: white; }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { min-height: 50vw; }
+    .hero-img-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; }
+    #why { grid-template-columns: 1fr; }
+    #contact { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    section { padding: 3.5rem 5%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="logo-icon">🦷</div>
+    <span>Jai Mahavir<br><small>Dental Hospital</small></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:09431446754" class="nav-cta">📞 Call Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge"><span class="dot"></span> Trusted Dental Care · Patna, Bihar</div>
+    <h1 class="hero-title">Your Smile,<br><em>Our Passion.</em><br>Your <span class="gold">Health.</span></h1>
+    <p class="hero-sub">Comprehensive dental care at Jai Mahavir Dental Hospital — modern equipment, compassionate team, and over a decade of smiles in the heart of Patna.</p>
+    <div class="hero-actions">
+      <a href="tel:09431446754" class="btn-primary">📞 Book Appointment</a>
+      <a href="#services" class="btn-secondary">Our Services →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">4.6★</div><div class="stat-lbl">Google Rating</div></div>
+      <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Years of Care</div></div>
+      <div class="stat"><div class="stat-num">Mon–Sat</div><div class="stat-lbl">10 am – 8 pm</div></div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="rating-badge">⭐ 4.6<small>13 Reviews</small></div>
+    <div class="hero-img-grid">
+      <div class="clinic-card">
+        <img src="/mnt/user-data/uploads/unnamed.webp" alt="Clinic Treatment Area">
+        <div class="clinic-card-label">Treatment Room</div>
+      </div>
+      <div class="clinic-card">
+        <img src="/mnt/user-data/uploads/unnamed__2_.webp" alt="Clinic Reception">
+        <div class="clinic-card-label">Consultation Area</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div class="section-tag">What We Offer</div>
+    <h2 class="section-title">Complete <em>Dental</em> Solutions</h2>
+    <p style="color:var(--muted);font-size:.92rem;line-height:1.7;font-weight:300;">From routine checkups to advanced procedures — all under one roof with modern equipment and expert care.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🔬</div>
+      <h3>Dental Checkup & Cleaning</h3>
+      <p>Regular examinations and professional cleaning to keep your teeth and gums in excellent health.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <h3>Teeth Whitening</h3>
+      <p>Professional-grade whitening treatments to brighten your smile and restore your natural confidence.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🦷</div>
+      <h3>Root Canal Treatment</h3>
+      <p>Painless root canal procedures using modern techniques to save your natural tooth effectively.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💎</div>
+      <h3>Dental Implants</h3>
+      <p>High-quality implants that look and feel like your natural teeth — a permanent smile solution.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏥</div>
+      <h3>Orthodontics & Braces</h3>
+      <p>Metal braces and clear aligner options to correct misaligned teeth for any age group.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">👶</div>
+      <h3>Pediatric Dentistry</h3>
+      <p>Gentle, child-friendly dental care ensuring your little ones have healthy smiles from the start.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<div id="why">
+  <div class="why-visual">
+    <div class="why-visual-inner">
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1.5rem;color:white;">Why Patients <em style="font-style:italic;color:var(--gold);">Choose Us</em></h3>
+      <ul class="why-list">
+        <li>
+          <span class="icon">🏆</span>
+          <div><strong>Experienced Professionals</strong><span>Qualified dentists with years of clinical experience in all dental disciplines.</span></div>
+        </li>
+        <li>
+          <span class="icon">⚙️</span>
+          <div><strong>Modern Equipment</strong><span>State-of-the-art dental chair units and diagnostic tools for precise treatment.</span></div>
+        </li>
+        <li>
+          <span class="icon">🛡️</span>
+          <div><strong>Sterilised & Safe</strong><span>Strict hygiene protocols and sterilised instruments for every patient, every visit.</span></div>
+        </li>
+        <li>
+          <span class="icon">💰</span>
+          <div><strong>Affordable Pricing</strong><span>Quality dental care without the premium price tag — treatments for every budget.</span></div>
+        </li>
+        <li>
+          <span class="icon">📍</span>
+          <div><strong>Prime Location</strong><span>Conveniently located at Station Road, Patna — accessible by public transport.</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="why-right">
+    <div class="section-tag">About the Clinic</div>
+    <h2 class="section-title">Serving <em>Patna</em> with Trusted Dental Care</h2>
+    <p>Jai Mahavir Dental Hospital has been a cornerstone of oral healthcare in Bihar's capital. Located at Sri Ram Plaza on Station Road, we combine clinical excellence with warm, patient-centred care. Our Google rating of 4.6★ reflects the trust our community places in us.</p>
+    <div class="feature-pills">
+      <span class="pill">✅ Painless Treatment</span>
+      <span class="pill">✅ Same-Day Appointments</span>
+      <span class="pill">✅ Family Dentistry</span>
+      <span class="pill">✅ Emergency Care</span>
+      <span class="pill">✅ All Ages Welcome</span>
+    </div>
+  </div>
+</div>
+
+<!-- HOURS -->
+<section id="hours">
+  <div class="section-tag">Visit Us</div>
+  <h2 class="section-title">Opening <em>Hours</em></h2>
+  <div class="hours-card">
+    <div class="hours-header">
+      <span style="font-size:1.5rem">🕙</span>
+      <h3>Clinic Timings</h3>
+    </div>
+    <table>
+      <tr><td class="day-col">Monday</td><td class="time-col">10:00 AM – 8:00 PM</td></tr>
+      <tr><td class="day-col">Tuesday</td><td class="time-col">10:00 AM – 8:00 PM</td></tr>
+      <tr><td class="day-col">Wednesday</td><td class="time-col">10:00 AM – 8:00 PM</td></tr>
+      <tr><td class="day-col">Thursday</td><td class="time-col">10:00 AM – 8:00 PM</td></tr>
+      <tr><td class="day-col">Friday</td><td class="time-col">10:00 AM – 8:00 PM</td></tr>
+      <tr><td class="day-col">Saturday <span class="open-badge">Open</span></td><td class="time-col">10:00 AM – 8:00 PM</td></tr>
+      <tr class="closed"><td class="day-col">Sunday</td><td class="time-col">Closed</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-info">
+    <div class="section-tag">Get in Touch</div>
+    <h2 class="section-title">Visit or <em>Call</em> Us Today</h2>
+    <div class="contact-detail">
+      <div class="icon-box">📍</div>
+      <div>
+        <strong>Address</strong>
+        <p>LG-1, Sri Ram Plaza, Station Road,<br>Near Jamal Rd Turning, Patna, Bihar 800001</p>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="icon-box">📞</div>
+      <div>
+        <strong>Phone</strong>
+        <a href="tel:09431446754">094314 46754</a>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="icon-box">🕙</div>
+      <div>
+        <strong>Timings</strong>
+        <p>Monday – Saturday: 10 AM to 8 PM<br>Sunday: Closed</p>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="icon-box">⭐</div>
+      <div>
+        <strong>Google Reviews</strong>
+        <a href="https://www.google.com/search?q=jai+mahavir+dental+hospital+patna" target="_blank">4.6★ — Read our reviews →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h3>Book an Appointment</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Rahul">
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Kumar">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" placeholder="+91 98765 43210">
+    </div>
+    <div class="form-group">
+      <label>Service Required</label>
+      <select>
+        <option value="">Select a treatment...</option>
+        <option>Dental Checkup & Cleaning</option>
+        <option>Teeth Whitening</option>
+        <option>Root Canal Treatment</option>
+        <option>Dental Implants</option>
+        <option>Orthodontics / Braces</option>
+        <option>Pediatric Dentistry</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message (Optional)</label>
+      <textarea placeholder="Any specific concerns or preferred time..."></textarea>
+    </div>
+    <button class="form-submit" onclick="alert('Thank you! We will contact you shortly to confirm your appointment.')">Request Appointment →</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Jai Mahavir Dental Hospital</strong></p>
+  <p>LG-1, Sri Ram Plaza, Station Road, Near Jamal Rd Turning, Patna, Bihar 800001</p>
+  <p>📞 <a href="tel:09431446754">094314 46754</a> &nbsp;|&nbsp; Mon–Sat: 10 AM – 8 PM</p>
+  <p style="margin-top:1rem;font-size:.75rem;opacity:.5;">© 2026 Jai Mahavir Dental Hospital. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
